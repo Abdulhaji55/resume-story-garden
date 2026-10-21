@@ -1,5 +1,5 @@
 # Portfolio redesign
-- [x] Refresh shared typography, colors, navigation, and page elements.
-- [x] Redesign the home page as a modular portfolio grid.
-- [x] Refresh all five resume detail pages without changing resume content.
-- [x] Verify navigation and layouts on desktop and mobile.
+- [ ] Apply a bold monochrome design with generous whitespace across all pages.
+- [ ] Add interactive project browsing while preserving descriptions and details.
+- [ ] Add a playable skills memory game with restart and completion states.
+- [ ] Verify game, project filters, navigation, and mobile layout.
