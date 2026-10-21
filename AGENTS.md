@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Portfolio conventions
+- Keep resume data in the shared resume module and render each resume section in its own TanStack route so content stays consistent across pages.
+- Use global semantic color tokens and shared Page and Button components for the modular portfolio design so presentation stays consistent.
+- Import portfolio imagery as bundled assets; illustrative imagery must not be presented as screenshots of actual client projects.
