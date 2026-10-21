@@ -41,8 +41,8 @@ function Home() {
         </div>
         <div className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-soft">
           <p className="text-xs uppercase tracking-widest opacity-60">Currently</p>
-          <p className="mt-2 font-display text-3xl">{experience[0].role}</p>
-          <p className="opacity-80">{experience[0].company}</p>
+          <p className="mt-2 font-display text-3xl">{experience[0]!.role}</p>
+          <p className="opacity-80">{experience[0]!.company}</p>
           <div className="my-6 h-px bg-primary-foreground/20" />
           <p className="text-sm opacity-80">{profile.location}</p>
         </div>
