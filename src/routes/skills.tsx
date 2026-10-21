@@ -23,9 +23,9 @@ function Skills() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {skills.map((s) => (
           <Card key={s.group}>
-            <h2 className="text-2xl">{s.group}</h2>
+            <h2 className="text-xl">{s.group}</h2>
             <div className="mt-5 flex flex-wrap gap-2">
-              {s.items.map((i) => <span key={i} className="rounded-full border px-3 py-1.5 text-sm">{i}</span>)}
+              {s.items.map((i) => <span key={i} className="rounded-md border px-3 py-1.5 text-sm">{i}</span>)}
             </div>
           </Card>
         ))}

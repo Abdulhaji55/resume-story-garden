@@ -29,7 +29,7 @@ function Experience() {
             <p className="text-lg text-muted-foreground">{e.company}</p>
             <ul className="mt-6 grid gap-3 md:grid-cols-2">
               {e.points.map((p) => (
-                <li key={p} className="rounded-xl border bg-card p-5 text-sm leading-relaxed">{p}</li>
+                <li key={p} className="rounded-lg border bg-card p-5 text-sm leading-relaxed">{p}</li>
               ))}
             </ul>
           </article>

@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 
 export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: ReactNode; intro?: string }) {
   return (
-    <header className="animate-rise pb-12 pt-16 md:pt-24">
-      <p className="mb-4 text-xs uppercase tracking-[0.25em] text-accent">{eyebrow}</p>
-      <h1 className="text-5xl leading-[0.95] md:text-7xl">{title}</h1>
-      {intro && <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{intro}</p>}
+    <header className="animate-rise pb-10 pt-12 md:pt-16">
+      <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase text-accent"><span className="h-px w-8 bg-accent" />{eyebrow}</p>
+      <h1 className="max-w-4xl text-4xl leading-tight md:text-5xl">{title}</h1>
+      {intro && <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{intro}</p>}
     </header>
   );
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-xl border bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-accent md:p-8 ${className}`}>{children}</div>;
+  return <div className={`rounded-lg border bg-card p-6 shadow-soft transition-colors hover:border-accent/40 md:p-8 ${className}`}>{children}</div>;
 }

@@ -35,7 +35,7 @@ function About() {
           </Card>
           <Card>
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Languages</p>
-            <div className="mt-4 flex gap-2">{profile.languages.map((l) => <span key={l} className="rounded-full bg-secondary px-4 py-1.5 text-sm">{l}</span>)}</div>
+            <div className="mt-4 flex gap-2">{profile.languages.map((l) => <span key={l} className="rounded-md bg-secondary px-4 py-1.5 text-sm">{l}</span>)}</div>
           </Card>
         </div>
       </div>
