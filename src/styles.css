@@ -68,3 +68,5 @@
 
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @utility animate-rise { animation: rise 0.8s cubic-bezier(.2,.7,.2,1) both; }
+:root { --shadow-soft: 0 20px 40px -24px color-mix(in oklab, var(--foreground) 25%, transparent); }
+@utility shadow-soft { box-shadow: var(--shadow-soft); }
