@@ -27,10 +27,10 @@ function Projects() {
               <span className="font-display text-3xl text-accent">0{i + 1}</span>
               <span>{p.period}</span>
             </div>
-            <h2 className="mt-4 text-3xl">{p.name}</h2>
+            <h2 className="mt-4 text-2xl leading-tight">{p.name}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{p.desc}</p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {p.tags.map((t) => <span key={t} className="rounded-full bg-secondary px-3 py-1 text-xs">{t}</span>)}
+              {p.tags.map((t) => <span key={t} className="rounded-md bg-secondary px-3 py-1 text-xs">{t}</span>)}
             </div>
           </Card>
         ))}

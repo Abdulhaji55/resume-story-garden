@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Card } from "@/components/Page";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/lib/resume";
 
 export const Route = createFileRoute("/contact")({
@@ -29,11 +31,11 @@ function Contact() {
         {items.map((i) => (
           <Card key={i.label}>
             <p className="text-xs uppercase tracking-widest text-muted-foreground">{i.label}</p>
-            {i.href ? <a href={i.href} className="mt-3 block break-words text-xl hover:text-accent">{i.value}</a> : <p className="mt-3 text-xl">{i.value}</p>}
+            {i.href ? <a href={i.href} className="mt-3 block break-words text-lg hover:text-accent">{i.value}</a> : <p className="mt-3 text-xl">{i.value}</p>}
           </Card>
         ))}
       </div>
-      <a href={`mailto:${profile.email}`} className="mt-12 inline-block rounded-full bg-primary px-8 py-4 text-primary-foreground transition hover:bg-accent">Send me an email →</a>
+      <Button asChild className="mt-10"><a href={`mailto:${profile.email}`}>Send me an email <ArrowUpRight /></a></Button>
     </>
   );
 }
