@@ -16,3 +16,6 @@
 
 - Keep ephemeral matching-game state in a pure reducer with tests and derive playable labels from shared resume skills, so gameplay stays testable without changing resume content.
 - Project browsing and filters only change presentation, never source resume fields, to preserve content integrity.
+
+- Appearance preferences are device-local UI settings managed by a shared provider; browser storage and media queries run only after hydration to preserve SSR safety.
+- Centralize progressive scroll animations in the shared shell and always let device reduced-motion override animation preferences for accessibility.
