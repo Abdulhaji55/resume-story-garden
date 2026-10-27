@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Card } from "@/components/Page";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { projects } from "@/lib/resume";
 
 export const Route = createFileRoute("/projects")({
@@ -17,14 +19,18 @@ export const Route = createFileRoute("/projects")({
 });
 
 function Projects() {
+  const [tag, setTag] = useState("All");
+  const tags = ["All", ...new Set(projects.flatMap(p => p.tags))];
   return (
     <>
       <PageHeader eyebrow="Selected work" title={<>Projects I've <em className="text-accent">shipped.</em></>} />
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((p, i) => (
+      <div className="mb-10 flex flex-wrap gap-2" aria-label="Filter projects by tag">{tags.map(t => <Button key={t} size="sm" variant={tag === t ? "default" : "outline"} aria-pressed={tag === t} onClick={() => setTag(t)}>{t}</Button>)}</div>
+      <p aria-live="polite" className="mb-6 text-xs text-muted-foreground">{projects.filter(p => tag === "All" || p.tags.includes(tag)).length} projects</p>
+      <div className="grid gap-10 md:grid-cols-2">
+        {projects.filter(p => tag === "All" || p.tags.includes(tag)).map((p) => (
           <Card key={p.name}>
             <div className="flex items-center justify-between text-sm text-muted-foreground">
-              <span className="font-display text-3xl text-accent">0{i + 1}</span>
+              <span className="font-display text-3xl text-accent">0{projects.indexOf(p) + 1}</span>
               <span>{p.period}</span>
             </div>
             <h2 className="mt-4 text-2xl leading-tight">{p.name}</h2>
