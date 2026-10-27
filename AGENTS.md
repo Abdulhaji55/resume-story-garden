@@ -13,3 +13,6 @@
 - Keep resume data in the shared resume module and render each resume section in its own TanStack route so content stays consistent across pages.
 - Use global semantic color tokens and shared Page and Button components for the modular portfolio design so presentation stays consistent.
 - Import portfolio imagery as bundled assets; illustrative imagery must not be presented as screenshots of actual client projects.
+
+- Keep ephemeral matching-game state in a pure reducer with tests and derive playable labels from shared resume skills, so gameplay stays testable without changing resume content.
+- Project browsing and filters only change presentation, never source resume fields, to preserve content integrity.

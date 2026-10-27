@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight, MapPin, Code2, Smartphone, Layers, BriefcaseBusiness } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile, projects, experience } from "@/lib/resume";
+import { SkillsGame } from "@/components/SkillsGame";
+import { ProjectExplorer } from "@/components/ProjectExplorer";
 import deskImage from "@/assets/developer-desk.jpg";
 
 export const Route = createFileRoute("/")({
@@ -20,37 +22,18 @@ function Home() {
   const current = experience[0];
   return (
     <div className="animate-rise">
-      <section className="grid gap-8 py-12 md:grid-cols-[1.4fr_1fr] md:items-end md:py-14">
-        <div>
-          <p className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase text-accent"><span className="h-px w-7 bg-accent" />Software developer / Portfolio</p>
-          <h1 className="text-4xl leading-[1.15] sm:text-5xl lg:text-6xl">Abdul Hameed<br /><span className="text-accent">Haji<span className="text-gold">.</span></span></h1>
-        </div>
-        <div className="md:pb-1">
-          <p className="max-w-md text-sm leading-7 text-muted-foreground">I build thoughtful web experiences and native Android apps — bringing ideas to life with React, PostgreSQL, AWS and Kotlin.</p>
-          <div className="mt-6 flex flex-wrap gap-3"><Button asChild><Link to="/projects">Explore my work <ArrowUpRight /></Link></Button><Button asChild variant="outline"><Link to="/about">A little about me <ArrowRight /></Link></Button></div>
-        </div>
+      <section className="relative border-b py-14 md:py-20">
+        <div className="mb-10 flex flex-wrap justify-between gap-3 text-xs font-medium uppercase text-muted-foreground"><span>Software developer / Portfolio 2026</span><span>Tirunelveli, India</span></div>
+        <h1 className="text-5xl font-bold leading-[1.05] sm:text-7xl lg:text-8xl">Abdul Hameed<br />Haji<span className="text-muted-foreground">.</span></h1>
+        <div className="mt-10 flex flex-col justify-between gap-7 md:flex-row md:items-end"><p className="max-w-lg text-base leading-7 text-muted-foreground">I build thoughtful web experiences and native Android apps — bringing ideas to life with React, PostgreSQL, AWS and Kotlin.</p><div className="flex flex-wrap gap-3"><Button asChild size="lg"><Link to="/projects">Explore my work <ArrowUpRight /></Link></Button><Button asChild variant="outline" size="lg"><a href="#play">Take a play break <Play /></a></Button></div></div>
       </section>
-
-      <section className="grid gap-4 md:grid-cols-12">
-        <div className="relative min-h-64 overflow-hidden rounded-lg md:col-span-7 md:min-h-80">
-          <img src={deskImage} alt="Laptop on an emerald desk displaying code" width={1200} height={800} className="absolute inset-0 h-full w-full object-cover" />
-          <span className="absolute bottom-5 left-5 flex items-center gap-2 rounded-md border border-primary-foreground/20 bg-primary px-3 py-2 text-xs text-primary-foreground"><Code2 size={15} />Crafting for web & mobile</span>
-        </div>
-        <div className="flex flex-col justify-between rounded-lg bg-primary p-6 text-primary-foreground md:col-span-5 md:p-8">
-          <div className="flex items-center justify-between"><p className="text-xs font-medium uppercase opacity-70">Currently building at</p><BriefcaseBusiness size={21} className="text-gold" /></div>
-          <div className="py-7"><h2 className="max-w-xs text-3xl leading-tight">{current?.company}</h2><p className="mt-3 text-sm opacity-70">{current?.role} <span className="px-1">·</span> Since February 2025</p></div>
-          <Link to="/experience" className="flex items-center justify-between border-t border-primary-foreground/20 pt-4 text-sm">My experience <ArrowUpRight size={20} /></Link>
-        </div>
-        <Link to="/skills" className="group flex flex-col justify-between rounded-lg border bg-card p-6 md:col-span-4"><div className="mb-6 flex items-center justify-between"><span className="text-xs font-semibold uppercase text-muted-foreground">My toolkit</span><Code2 size={20} className="text-accent" /></div><h2 className="text-xl">Web meets mobile.</h2><p className="mt-2 text-xs leading-6 text-muted-foreground">React.js / JavaScript / Kotlin / AWS</p><div className="mt-5 flex items-center justify-between text-xs text-accent">View all skills <ArrowUpRight size={17} className="transition-transform group-hover:-translate-y-1" /></div></Link>
-        <Link to="/projects" className="group flex items-center justify-between rounded-lg border bg-card p-6 md:col-span-4"><div><p className="text-xs font-semibold uppercase text-muted-foreground">Selected work</p><p className="my-3 font-display text-5xl font-semibold text-primary">0{projects.length}<span className="ml-2 text-gold">↗</span></p><p className="text-sm text-muted-foreground">Projects. Real-world solutions.</p></div><Layers size={32} strokeWidth={1} className="text-accent" /></Link>
-        <div className="flex flex-col justify-between rounded-lg bg-secondary p-6 md:col-span-4"><MapPin size={22} className="text-accent" /><div className="mt-6"><p className="text-xs font-semibold uppercase text-muted-foreground">Based in</p><h2 className="mt-2 text-xl">Tirunelveli, India</h2><p className="mt-2 text-xs text-muted-foreground">Tamil Nadu <span className="px-1">·</span> English & Tamil</p></div></div>
+      <section className="grid gap-10 py-12 md:grid-cols-[1.1fr_1fr] md:gap-16 md:py-16">
+        <div className="group overflow-hidden"><img src={deskImage} alt="Laptop displaying code on a minimalist desk" width={1200} height={800} className="aspect-[3/2] w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03]" /></div>
+        <div className="flex flex-col justify-between"><p className="text-xs font-medium uppercase text-muted-foreground">01 / Behind the work</p><div className="py-8"><h2 className="text-3xl font-bold leading-tight md:text-4xl">Web. Mobile.<br />Real-world impact.</h2><p className="mt-5 text-sm leading-7 text-muted-foreground">{current?.role} at {current?.company}. Building interfaces, integrating APIs, and turning business requirements into working software.</p></div><div className="flex flex-wrap gap-6 border-t pt-5"><Link to="/about" className="flex items-center gap-2 text-sm font-semibold">Meet Abdul <ArrowUpRight size={16} /></Link><Link to="/experience" className="flex items-center gap-2 text-sm text-muted-foreground">The experience <ArrowUpRight size={16} /></Link><Link to="/skills" className="flex items-center gap-2 text-sm text-muted-foreground">The toolkit <ArrowUpRight size={16} /></Link></div></div>
       </section>
-
-      <section className="pt-14">
-        <div className="mb-6 flex items-end justify-between gap-4"><div><p className="mb-2 text-xs font-semibold uppercase text-accent">From idea to implementation</p><h2 className="text-2xl md:text-3xl">Selected projects</h2></div><Link to="/projects" className="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent">All projects <ArrowUpRight size={16} /></Link></div>
-        <div className="grid gap-4 md:grid-cols-3">{projects.slice(0, 3).map((p, i) => <Link key={p.name} to="/projects" className="group rounded-lg border bg-card p-6 transition hover:border-accent"><div className="flex items-center justify-between"><span className="text-xs font-medium text-muted-foreground">0{i + 1} / {p.tags[0]}</span><ArrowUpRight size={18} className="text-accent" /></div><h3 className="mt-7 text-lg leading-7 group-hover:text-accent">{p.name}</h3><p className="mt-3 line-clamp-3 text-xs leading-6 text-muted-foreground">{p.desc}</p><p className="mt-5 border-t pt-4 text-xs text-muted-foreground">{p.period}</p></Link>)}</div>
-      </section>
-      <section className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t pt-9"><div><p className="text-xs uppercase text-muted-foreground">Have something in mind?</p><h2 className="mt-2 text-2xl">Let's build something great.</h2></div><Button asChild><a href={`mailto:${profile.email}`}>Get in touch <ArrowUpRight /></a></Button></section>
+      <section className="pb-16 md:pb-24"><div className="mb-8 flex items-end justify-between gap-4"><div><p className="mb-4 text-xs font-medium uppercase text-muted-foreground">02 / Selected work</p><h2 className="text-4xl font-bold md:text-5xl">Ideas, made real.</h2></div><Link to="/projects" className="flex shrink-0 items-center gap-2 text-xs font-semibold">All {projects.length} projects <ArrowUpRight size={16} /></Link></div><ProjectExplorer /></section>
+      <SkillsGame />
+      <section className="flex flex-wrap items-end justify-between gap-8 border-t py-16 md:py-24"><div><p className="mb-5 text-xs uppercase text-muted-foreground">Next / Let's connect</p><h2 className="text-4xl font-bold md:text-6xl">Your idea.<br />Our next project.</h2></div><Button asChild size="lg"><a href={`mailto:${profile.email}`}>Get in touch <ArrowUpRight /></a></Button></section>
     </div>
   );
 }
