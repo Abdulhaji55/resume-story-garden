@@ -15,8 +15,8 @@ export function AppearanceProvider({ children }: { children: ReactNode }) {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const apply = () => {
       document.documentElement.classList.toggle('dark', resolveDark(preferences.theme, dark.matches));
-      document.documentElement.dataset.motion = preferences.motion && !reduced.matches ? 'full' : 'reduced';
-      document.documentElement.dataset.effects = preferences.effects ? 'on' : 'off';
+      document.documentElement.dataset['motion'] = preferences.motion && !reduced.matches ? 'full' : 'reduced';
+      document.documentElement.dataset['effects'] = preferences.effects ? 'on' : 'off';
       document.documentElement.style.colorScheme = resolveDark(preferences.theme, dark.matches) ? 'dark' : 'light';
       setSystemReduced(reduced.matches);
     };
